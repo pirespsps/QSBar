@@ -2,40 +2,57 @@ import Quickshell
 import Quickshell.Io
 import QtQuick
 
-Variants {
+ShellRoot {
+    Variants {
+
 	model: Quickshell.screens
 
-	delegate: Component{
-		PanelWindow {
-			required property var modelData
+	Item {
+	    id: root
+	    required property var modelData
 
-			screen: modelData
+	    PanelWindow {
+		id: barra
 
-			anchors {
-				top: true
-				left: true
-				right: true
-			}
+		screen: root.modelData
 
-			margins {
-				left: 10
-				top: 0
-				right: 10
-			}
-
-			surfaceFormat {
-			    opaque: true
-			}
-
-			color: Colors.background
-
-			Rectangle {
-			    width: 20
-			    height: 20
-			    color: Colors.active
-			}
-
-			implicitHeight: 35
+		anchors {
+		    top: true
+		    left: true
+		    right: true
 		}
+
+		margins {
+		    top: 10
+		    left: 10
+		    right: 10
+		    bottom: 10
+		}
+
+		surfaceFormat {
+		    opaque: false
+		}
+
+		color: "transparent"
+
+		Rectangle {
+		    radius: 10
+		    width: parent.width
+		    height: parent.height
+		    color: Colors.background
+
+		    Rectangle {
+			radius: 5
+			width: parent.height / 1.5
+			height: parent.height / 1.5
+			color: Colors.active
+			x: 5
+			y: parent.height * 0.15
+		    }
+		}
+
+		implicitHeight: 30
+	    }
 	}
+    }
 }
