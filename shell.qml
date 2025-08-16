@@ -55,12 +55,13 @@ ShellRoot {
 			    Rectangle {
 
 				required property var modelData
+				required property int index
 
 				radius: 5
 				width: barra.height / 1.5
 				height: barra.height / 1.5
 				color: Colors.active
-				x: barra.height / 2 * modelData.name
+				x: this.width * index + 9 * index + barra.height / 2
 				y: barra.height * 0.15
 
 				Text {
@@ -85,6 +86,7 @@ ShellRoot {
 			    anchors.centerIn: parent
 			    text: horario.time
 			    color: Colors.foreground
+			    font.pixelSize: 18
 			}
 		    }
 		}
