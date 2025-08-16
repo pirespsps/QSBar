@@ -4,6 +4,10 @@ import Quickshell.I3
 import QtQuick
 
 ShellRoot {
+    Time {
+	id: horario
+    }
+
     Variants {
 
 	model: Quickshell.screens
@@ -65,6 +69,22 @@ ShellRoot {
 				    text: modelData.name
 				}
 			    }
+			}
+		    }
+
+		    Rectangle {
+			x: barra.width - this.width - barra.height / 2
+			y: barra.height / 2 - this.height / 2
+
+			radius: 5
+			width: 100
+			height: barra.height / 1.25
+			color: Colors.active
+
+			Text {
+			    anchors.centerIn: parent
+			    text: horario.time
+			    color: Colors.foreground
 			}
 		    }
 		}
