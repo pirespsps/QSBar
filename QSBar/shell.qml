@@ -1,16 +1,13 @@
 import Quickshell
 import Quickshell.Io
 import QtQuick
+import "./widgets" as Widgets
 
 ShellRoot {
 
-    Time {
-	id: horario
-    }
-
 	SystemClock {
- 	id: clock
-  	precision: SystemClock.Hour
+ 		id: clock
+  		precision: SystemClock.Hour
 	}
 
     Variants {
@@ -20,22 +17,25 @@ ShellRoot {
 	Item {
 	    id: root
 	    required property var modelData
+		property bool isVisible: false
 
 	    PanelWindow {
 		id: barra_wind
 
+		visible: parent.isVisible
+
 		screen: root.modelData
-		
-		anchors {
+
+		 anchors {
 		    bottom: true
 		    left: true
 		    right: true
-		}
+		} 
 
 		margins {
 		    top: 0
-		    left: 1
-		    right: 1 
+		    left: 0
+		    right: 0 
 		    bottom: 0
 		}
 
@@ -47,52 +47,54 @@ ShellRoot {
 
 		Rectangle {
 		    id: barra
+			anchors.centerIn: parent
 
+			visible: parent.visible
 		    
-		    width: parent.width
-		    height: parent.height 
-		    color: Colors.background 
+			width: parent.width
+		    height: parent.height
+		    color: Colors.background
+			opacity:0.93
 
-		    Rectangle {
-			x: barra.width - this.width * 2.45
-			y: barra.height / 2 - this.height / 2 
+			Widgets.TimeWidget{
+				id: time_widget
+				x: barra.width / 2
+				y: barra.height / 2 - this.height / 2 
+			}
 
-			radius: 2
-			width: 50
-			height: barra.height / 1.05
-			color: Colors.active
-
-			Text {
-			    anchors.centerIn: parent
-			    text: horario.time
-			    color: Colors.foreground
-			    font.pixelSize: 12
-		   	 }
-
-		    }
-
-		    Rectangle{
+		    Widgets.DateWidget{
+			id: date_widget
 			x: barra.width - this.width 
 			y: barra.height / 2 - this.height / 2
-
-			radius: 2
-			width: 70
-			height: barra.height / 1.05
-			color: Colors.active
-
-			Text{
-				anchors.centerIn: parent
-				text: Qt.formatDateTime(clock.date, "dd/MM/yyyy")
-				color: Colors.foreground
-				font.pixelSize: 12
-		
 			}
-	 	  }
 
   	 }
 
-	 implicitHeight: 20	
+	 height: 25
+
 	 }
-    }
+
     }
 }
+}
+
+//MouseArea{
+//			id: mouseArea
+//			anchors.fill:parent
+//			hoverEnabled:true
+//			height:20
+//
+//			anchors{
+//				bottom: parent.bottom
+//				left: parent.left
+//				right: parent.right
+//			}
+//
+//			onEntered: root.isVisible = true
+//
+//			onExited: {
+//				if(!containsMouse){
+//					root.isVisible = false
+//				}
+//			}
+//		}
