@@ -20,7 +20,7 @@ Rectangle {
 			    anchors.centerIn: parent
 			    text: horario.time
 			    color: Colors.foreground
-			    font.pixelSize: 13
+			    font.pixelSize: 15
 		   	}
 
 		}

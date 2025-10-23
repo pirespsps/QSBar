@@ -1,0 +1,25 @@
+import QtQuick
+import "./widgets" as Widgets
+
+Rectangle {
+		    id: barra
+			anchors.centerIn: parent
+		    
+			width: parent.width
+		    height: parent.height
+		    color: Colors.background
+			opacity:0.8
+
+			Widgets.TimeWidget{
+				id: time_widget
+				x: barra.width / 2
+				y: barra.height / 2 - this.height / 2 
+			}
+
+		    Widgets.DateWidget{
+			    id: date_widget
+			    x: barra.width - this.width 
+			    y: barra.height / 2 - this.height / 2
+			}
+
+  	 }

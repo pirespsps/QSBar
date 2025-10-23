@@ -14,19 +14,56 @@ ShellRoot {
 
 	model: Quickshell.screens
 
+
 	Item {
 	    id: root
 	    required property var modelData
-		property bool isVisible: false
+		property var isBarVisible: false
+
+		PanelWindow{
+
+			id: mouseListener
+			screen: root.modelData
+			height: 1
+			color: "transparent"
+			visible: true
+			
+			anchors{
+				bottom:true
+				left: true
+				right: true
+			}
+
+			MouseArea{
+
+			id: mouseArea
+			anchors.fill: parent
+			height: parent.height
+			hoverEnabled: true
+			
+			onEntered:root.isBarVisible = true
+
+			onExited: hideTimer.start()
+
+		}
+
+		Timer {
+		    id: hideTimer
+    		interval: 200
+    		onTriggered: root.isBarVisible = barraMouseArea.containsMouse
+		}
+
 
 	    PanelWindow {
 		id: barra_wind
-
-		visible: parent.isVisible
-
+		visible: root.isBarVisible
 		screen: root.modelData
+		color: "transparent"
+	 	height: 30
+		exclusiveZone: 0
 
-		 anchors {
+
+		anchors {
 		    bottom: true
 		    left: true
 		    right: true
@@ -43,58 +80,22 @@ ShellRoot {
 		    opaque: false
 		}
 
-		color: "transparent"
+		MouseArea {
+        id: barraMouseArea
+        anchors.fill: parent
+		height:parent.height
+        hoverEnabled: true
 
-		Rectangle {
-		    id: barra
-			anchors.centerIn: parent
-
-			visible: parent.visible
-		    
-			width: parent.width
-		    height: parent.height
-		    color: Colors.background
-			opacity:0.93
-
-			Widgets.TimeWidget{
-				id: time_widget
-				x: barra.width / 2
-				y: barra.height / 2 - this.height / 2 
-			}
-
-		    Widgets.DateWidget{
-			id: date_widget
-			x: barra.width - this.width 
-			y: barra.height / 2 - this.height / 2
-			}
-
-  	 }
-
-	 height: 25
-
-	 }
-
+		onExited: root.isBarVisible = false
     }
-}
-}
 
-//MouseArea{
-//			id: mouseArea
-//			anchors.fill:parent
-//			hoverEnabled:true
-//			height:20
-//
-//			anchors{
-//				bottom: parent.bottom
-//				left: parent.left
-//				right: parent.right
-//			}
-//
-//			onEntered: root.isVisible = true
-//
-//			onExited: {
-//				if(!containsMouse){
-//					root.isVisible = false
-//				}
-//			}
-//		}
+		Shell{
+			id: barra
+			visible: parent.visible
+		}
+
+	 			}
+			}
+		}
+	}
+}
