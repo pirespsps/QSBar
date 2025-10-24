@@ -4,8 +4,8 @@ import QtQuick
 
 Scope {
     id: root
-    property string icon: "https://cdn.weatherapi.com/weather/64x64/night/116.png"
-    property string temp: "16.5"
+    property string icon //: "https://cdn.weatherapi.com/weather/64x64/night/116.png"
+    property string temp //: "16.5"
 
     Process {
 	id: climeProc
@@ -18,7 +18,7 @@ Scope {
 
 			var data = JSON.parse(this.text)
 
-			root.icon = "http:" + data.icon
+			root.icon = "https:" + data.icon
 			root.temp = data.temp
 
 		}

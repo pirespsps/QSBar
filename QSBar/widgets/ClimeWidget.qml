@@ -7,28 +7,32 @@ Rectangle{
     Clime{
         id: clime
     }
-
 			x: barra.width - this.width 
 			y: barra.height / 2 - this.height / 2
 
 			radius: 2
-			width: 80
+			width: 90
 			height: barra.height
 			color: Colors.active
 
-            Item{
+            Row{
 				anchors.centerIn: parent
+				spacing: 10
+				height: parent.height
 
-                IconImage{
+                Image{
                     source: clime.icon
-				    anchors.centerIn: parent
+					y: parent.height - this.height
+					width: 30
+					height: 30
                 }
 
-                Text{
-				    anchors.centerIn: parent
+	            Text{
+					width:25
+					y: parent.height/2 - this.height/2
     			    text: clime.temp
-	    		    color: Colors.foreground
-		    	    font.pixelSize: 12
+	    			color: Colors.foreground
+		    	 	font.pixelSize: 12
 			    }
                 
             }
