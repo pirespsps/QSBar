@@ -22,4 +22,10 @@ Rectangle {
 			    y: barra.height / 2 - this.height / 2
 			}
 
+			Widgets.ClimeWidget{
+				id: clime_widget
+			    x: barra.width - this.width - date_widget.width 
+			    y: barra.height / 2 - this.height / 2
+			}
+
   	 }

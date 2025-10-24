@@ -24,9 +24,10 @@ ShellRoot {
 
 			id: mouseListener
 			screen: root.modelData
-			height: 1
+			height: 10
 			color: "transparent"
 			visible: true
+			exclusiveZone:0
 			
 			anchors{
 				bottom:true
@@ -87,7 +88,6 @@ ShellRoot {
         hoverEnabled: true
 
 		onExited: root.isBarVisible = false
-    }
 
 		Shell{
 			id: barra
@@ -98,4 +98,5 @@ ShellRoot {
 			}
 		}
 	}
+}
 }
