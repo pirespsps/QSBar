@@ -17,7 +17,7 @@ Rectangle{
 
             Row{
 				anchors.centerIn: parent
-				spacing: 10
+				spacing: 1
 				height: parent.height
 
                 Image{
@@ -28,9 +28,9 @@ Rectangle{
                 }
 
 	            Text{
-					width:25
+					width:60
 					y: parent.height/2 - this.height/2
-    			    text: clime.temp
+    			    text: clime.temp + "ºC"
 	    			color: Colors.foreground
 		    	 	font.pixelSize: 12
 			    }

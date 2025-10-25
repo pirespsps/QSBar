@@ -5,11 +5,6 @@ import "./widgets" as Widgets
 
 ShellRoot {
 
-	SystemClock {
- 		id: clock
-  		precision: SystemClock.Hour
-	}
-
     Variants {
 
 	model: Quickshell.screens
@@ -63,23 +58,11 @@ ShellRoot {
 	 	height: 30
 		exclusiveZone: 0
 
-
 		anchors {
 		    bottom: true
 		    left: true
 		    right: true
 		} 
-
-		margins {
-		    top: 0
-		    left: 0
-		    right: 0 
-		    bottom: 0
-		}
-
-		surfaceFormat {
-		    opaque: false
-		}
 
 		MouseArea {
         id: barraMouseArea
@@ -92,6 +75,8 @@ ShellRoot {
 		Shell{
 			id: barra
 			visible: parent.visible
+			width: parent.width
+			height: parent.height
 		}
 
 	 			}

@@ -28,4 +28,8 @@ Rectangle {
 			    y: barra.height / 2 - this.height / 2
 			}
 
+			Widgets.WorkspaceWidget{
+				id: workspace_widget
+				x: 2
+			}
   	 }
