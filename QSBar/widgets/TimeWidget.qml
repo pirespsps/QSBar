@@ -13,7 +13,7 @@ Item{
 
 		radius: 2
 		width: 50
-		height: barra.height / 1.05
+		height: barra.height
 		color: "transparent"
 
 		Text {
@@ -22,6 +22,21 @@ Item{
 		    color: Colors.foreground
 		    font.pixelSize: 15
 		}
+
+		MouseArea{
+        id:clickable_area
+        anchors.fill: parent
+        height:parent.height
+        width: parent.width
+        hoverEnabled:true
+
+        onEntered: parent.color = Colors.active
+        onExited: parent.color = "transparent"
+
+        onPressed: {
+            //...
+        }
+    }
 
 	}
 }

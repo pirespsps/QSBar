@@ -2,6 +2,7 @@ import QtQuick
 import "./widgets" as Widgets
 
 Rectangle {
+	
 		    id: barra
 			anchors.centerIn: parent
 		    
@@ -12,13 +13,13 @@ Rectangle {
 
 			Widgets.UserWidget{
 				id: user_widget
-				x: 5
+				x: 0
 				y: barra.height / 2 - this.height / 2
 			}
 
 			Widgets.WorkspaceWidget{
 				id: workspace_widget
-				x: user_widget.width + user_widget.x + 7
+				x: user_widget.width + 5
 			}
 
 			Widgets.TimeWidget{
