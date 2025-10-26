@@ -39,7 +39,7 @@ Scope {
 
     Timer{
         id: timer_repeat
-        interval: 700
+        interval: 1500
         running:true
         repeat: true
         onTriggered:{

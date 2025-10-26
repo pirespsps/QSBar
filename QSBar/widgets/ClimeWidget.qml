@@ -22,6 +22,7 @@ Rectangle{
 
                 Image{
                     source: clime.icon
+					mipmap: true
 					y: parent.height - this.height
 					width: 30
 					height: 30

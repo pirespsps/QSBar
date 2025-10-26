@@ -10,6 +10,17 @@ Rectangle {
 		    color: Colors.background
 			opacity:0.8
 
+			Widgets.UserWidget{
+				id: user_widget
+				x: 5
+				y: barra.height / 2 - this.height / 2
+			}
+
+			Widgets.WorkspaceWidget{
+				id: workspace_widget
+				x: user_widget.width + user_widget.x + 7
+			}
+
 			Widgets.TimeWidget{
 				id: time_widget
 				x: barra.width / 2
@@ -26,10 +37,5 @@ Rectangle {
 				id: clime_widget
 			    x: barra.width - this.width - date_widget.width 
 			    y: barra.height / 2 - this.height / 2
-			}
-
-			Widgets.WorkspaceWidget{
-				id: workspace_widget
-				x: 2
 			}
   	 }
